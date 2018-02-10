@@ -93,21 +93,7 @@ $country=$details->country;
 //$lng=77.660729; //longitude
  $address= getaddress($lat,$lng);
  
- $sql=mysql_query($db,"INSERT INTO `user_server_detail`(`visitor_IP_address`, `visitor_Date`, `visitor_Hostname`, `visitor_Browser`, `visitor_lat`, `visitor_lng`, `visitor_ISP_provider`,
- `visitor_City`, `visitor_State`, `Country`, `Address`) VALUES ('$IP','$date','$Hostname','$Browser','$lat','$lng','$provider','$city','$region','$country','$address')")
- or die(mysqli_error($db));
- //VALUES ('$IP','$date',$Hostname','$Browser','$lat','$lng','$provider','$city','$region','$country','$address')
  
- 
-  if($address)
-  {
-      echo $sql;
-   // echo'Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;', $address;
-  }
-  else
-  {
-    echo "Not found";
-  }
   function getaddress($lat,$lng)
 {
 $url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&sensor=false';
